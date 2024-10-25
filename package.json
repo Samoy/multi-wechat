@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "lint:eslint": "eslint \"src/**/*.{tsx,ts,js,jsx}\"",
-    "lint:stylelint": "stylelint \"src/**/*.{less,postcss,css,scss}\"",
+    "lint:stylelint": "stylelint --aei \"src/**/*.{less,postcss,css,scss}\"",
     "test": "vitest run --coverage",
     "test:ui": "vitest --ui",
     "build": "tsc && vite build",
