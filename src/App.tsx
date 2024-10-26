@@ -39,6 +39,10 @@ function App() {
       await message('请填写微信路径', { title: '提示', kind: 'warning' })
       return
     }
+    const num = Number(wechatNumber)
+    if (!Number.isInteger(num)) {
+      await message('请填写1~10之间的整数', { title: '提示', kind: 'warning' })
+    }
     invoke('start_multi_wechat', { path: wechatPath, num: Number(wechatNumber) })
       .then(async () => {
         const result = await ask('微信多开是否成功？', {
@@ -61,7 +65,10 @@ function App() {
       <div>
         <Label htmlFor={wechatPathInput}>请输入微信应用路径：</Label>
         <Input
+          autoFocus
+          placeholder="请输入或者选择微信路径"
           id={wechatPathInput}
+          style={{ width: '200px' }}
           value={wechatPath}
           onChange={(_, data) => setWechatPath(data.value)}
         />
@@ -76,8 +83,12 @@ function App() {
       <div>
         <Label htmlFor={wechatNumberInput}>要启动的数量：</Label>
         <Input
+          min={1}
+          max={10}
           id={wechatNumberInput}
           type={'number'}
+          placeholder="请输入多开的数量"
+          style={{ width: '200px' }}
           value={wechatNumber}
           onChange={(_, data) => setWechatNumber(data.value)}
         />
