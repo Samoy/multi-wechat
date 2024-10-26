@@ -63,6 +63,7 @@ module.exports = {
     ],
     'simple-import-sort/exports': 'error', // 导出
     'import/order': 'off',
+    'linebreak-style': 'off',
   },
   ignorePatterns: ['!src/**/*'],
 }

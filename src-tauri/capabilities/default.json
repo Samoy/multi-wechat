@@ -9,6 +9,17 @@
     "core:default",
     "shell:allow-open",
     "dialog:default",
-    "shell:default"
+    "shell:default",
+    {
+      "identifier": "shell:allow-execute",
+      "allow": [
+        {
+          "name": "cmd",
+          "cmd": "cmd",
+          "sidecar": false
+        }
+      ]
+    },
+    "process:default"
   ]
 }

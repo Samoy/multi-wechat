@@ -1,7 +1,8 @@
 import { Button, Input, Label, makeStyles, Tooltip, useId } from '@fluentui/react-components'
 import { MoreHorizontal16Regular } from '@fluentui/react-icons'
-import { open } from '@tauri-apps/plugin-dialog'
-import { Command } from '@tauri-apps/plugin-shell'
+import { invoke } from '@tauri-apps/api/core'
+import { ask, message, open } from '@tauri-apps/plugin-dialog'
+import { exit } from '@tauri-apps/plugin-process'
 import { useState } from 'react'
 
 const useStyles = makeStyles({
@@ -34,10 +35,25 @@ function App() {
   }
 
   const startMultiWechat = async () => {
-    const result = Command.create('run-git-commit', ['commit', '-m', 'the commit message'])
-    result.spawn().then((result) => {
-      console.log(result)
-    })
+    if (!wechatPath) {
+      await message('请填写微信路径', { title: '提示', kind: 'warning' })
+      return
+    }
+    invoke('start_multi_wechat', { path: wechatPath, num: Number(wechatNumber) })
+      .then(async () => {
+        const result = await ask('微信多开是否成功？', {
+          title: '提示',
+          kind: 'info',
+        })
+        if (result) {
+          await exit()
+        } else {
+          await message('请检查微信路径是否正确！', { title: '提示', kind: 'info' })
+        }
+      })
+      .catch((error) => {
+        console.log('错误', error)
+      })
   }
 
   return (

@@ -20,6 +20,9 @@ importers:
       '@tauri-apps/plugin-dialog':
         specifier: ~2
         version: 2.0.1
+      '@tauri-apps/plugin-process':
+        specifier: ~2
+        version: 2.0.0
       '@tauri-apps/plugin-shell':
         specifier: ^2.0.1
         version: 2.0.1
@@ -59,7 +62,7 @@ importers:
         version: 2.1.3(@types/node@22.7.9)(@vitest/spy@2.1.3)(playwright@1.48.1)(typescript@5.6.3)(vite@5.4.10(@types/node@22.7.9)(sass@1.80.4))(vitest@2.1.3)
       '@vitest/coverage-v8':
         specifier: 2.1.2
-        version: 2.1.2(@vitest/browser@2.1.3(@types/node@22.7.9)(@vitest/spy@2.1.3)(playwright@1.48.1)(typescript@5.6.3)(vite@5.4.10(@types/node@22.7.9)(sass@1.80.4))(vitest@2.1.3))(vitest@2.1.3(@types/node@22.7.9)(@vitest/browser@2.1.3)(@vitest/ui@2.1.3)(msw@2.5.1(@types/node@22.7.9)(typescript@5.6.3))(sass@1.80.4))
+        version: 2.1.2(@vitest/browser@2.1.3)(vitest@2.1.3)
       '@vitest/ui':
         specifier: ^2.1.2
         version: 2.1.3(vitest@2.1.3)
@@ -131,7 +134,7 @@ importers:
         version: 2.1.3(@types/node@22.7.9)(@vitest/browser@2.1.3)(@vitest/ui@2.1.3)(msw@2.5.1(@types/node@22.7.9)(typescript@5.6.3))(sass@1.80.4)
       vitest-browser-react:
         specifier: ^0.0.1
-        version: 0.0.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(@vitest/browser@2.1.3(@types/node@22.7.9)(@vitest/spy@2.1.3)(playwright@1.48.1)(typescript@5.6.3)(vite@5.4.10(@types/node@22.7.9)(sass@1.80.4))(vitest@2.1.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vitest@2.1.3(@types/node@22.7.9)(@vitest/browser@2.1.3)(@vitest/ui@2.1.3)(msw@2.5.1(@types/node@22.7.9)(typescript@5.6.3))(sass@1.80.4))
+        version: 0.0.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(@vitest/browser@2.1.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vitest@2.1.3)
 
 packages:
 
@@ -1353,6 +1356,9 @@ packages:
 
   '@tauri-apps/plugin-dialog@2.0.1':
     resolution: {integrity: sha512-fnUrNr6EfvTqdls/ufusU7h6UbNFzLKvHk/zTuOiBq01R3dTODqwctZlzakdbfSp/7pNwTKvgKTAgl/NAP/Z0Q==}
+
+  '@tauri-apps/plugin-process@2.0.0':
+    resolution: {integrity: sha512-OYzi0GnkrF4NAnsHZU7U3tjSoP0PbeAlO7T1Z+vJoBUH9sFQ1NSLqWYWQyf8hcb3gVWe7P1JggjiskO+LST1ug==}
 
   '@tauri-apps/plugin-shell@2.0.1':
     resolution: {integrity: sha512-akU1b77sw3qHiynrK0s930y8zKmcdrSD60htjH+mFZqv5WaakZA/XxHR3/sF1nNv9Mgmt/Shls37HwnOr00aSw==}
@@ -5301,6 +5307,10 @@ snapshots:
     dependencies:
       '@tauri-apps/api': 2.0.3
 
+  '@tauri-apps/plugin-process@2.0.0':
+    dependencies:
+      '@tauri-apps/api': 2.0.3
+
   '@tauri-apps/plugin-shell@2.0.1':
     dependencies:
       '@tauri-apps/api': 2.0.3
@@ -5486,7 +5496,7 @@ snapshots:
       - utf-8-validate
       - vite
 
-  '@vitest/coverage-v8@2.1.2(@vitest/browser@2.1.3(@types/node@22.7.9)(@vitest/spy@2.1.3)(playwright@1.48.1)(typescript@5.6.3)(vite@5.4.10(@types/node@22.7.9)(sass@1.80.4))(vitest@2.1.3))(vitest@2.1.3(@types/node@22.7.9)(@vitest/browser@2.1.3)(@vitest/ui@2.1.3)(msw@2.5.1(@types/node@22.7.9)(typescript@5.6.3))(sass@1.80.4))':
+  '@vitest/coverage-v8@2.1.2(@vitest/browser@2.1.3)(vitest@2.1.3)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@bcoe/v8-coverage': 0.2.3
@@ -7569,7 +7579,7 @@ snapshots:
       fsevents: 2.3.3
       sass: 1.80.4
 
-  vitest-browser-react@0.0.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(@vitest/browser@2.1.3(@types/node@22.7.9)(@vitest/spy@2.1.3)(playwright@1.48.1)(typescript@5.6.3)(vite@5.4.10(@types/node@22.7.9)(sass@1.80.4))(vitest@2.1.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vitest@2.1.3(@types/node@22.7.9)(@vitest/browser@2.1.3)(@vitest/ui@2.1.3)(msw@2.5.1(@types/node@22.7.9)(typescript@5.6.3))(sass@1.80.4)):
+  vitest-browser-react@0.0.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(@vitest/browser@2.1.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vitest@2.1.3):
     dependencies:
       '@vitest/browser': 2.1.3(@types/node@22.7.9)(@vitest/spy@2.1.3)(playwright@1.48.1)(typescript@5.6.3)(vite@5.4.10(@types/node@22.7.9)(sass@1.80.4))(vitest@2.1.3)
       react: 18.3.1
